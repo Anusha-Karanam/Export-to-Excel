@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Export_to_Excel.Models.EmployeeViewModel>
+
+<div class="container">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>empid</th>
+                <th>Name</th>
+                <th>DOJ</th>
+                <th>Designation</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@item.empid</td>
+                        <td>@item.Name</td>
+                        <td>@item.DOJ</td>
+                        <td>@item.Designation</td>
+                        <td>@item.Salary</td>
+                    </tr>
+
+
+                }
+            }
+        </tbody>
+
+    </table>
+ 
+    @Html.ActionLink("Export to Excel", "ExportToExcel", null, new { @class = "btn btn-primary" })
+
+</div>
